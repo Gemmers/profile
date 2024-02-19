@@ -1,0 +1,254 @@
+
+/*   gestion des polices  */
+
+.courgette-regular {
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*   gestion des elements principaux   */
+
+body, html {
+  background-color:whitesmoke;
+
+  font-weight: 400;
+  font-size: 16pt;
+  line-height: 26px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  overflow: hidden; /* Interdire le scroll */
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color : #62a081;
+  font-size: 17pt;
+  line-height: 19px;
+}
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#rounded-profile {
+  border-radius: 50%;
+}
+
+/*   gestion des liens   */
+
+a {
+  text-decoration: none;
+  color:rgb(195, 195, 195);
+}
+a:hover {
+  text-decoration: none;
+  color:rgb(99, 113, 139);
+}
+
+/*   gestion des listes   */
+
+#specific-contact > li {
+  font-size: 10em;
+}
+.list-inline > li {
+  display: inline-block;
+  padding: 20px 20px;
+}
+.list-inline {
+  padding-left: 0px;
+  list-style: none;
+  font-size: 30px;
+}
+
+/*   gestion des cadres   */
+
+.container {
+  z-index: 2;
+  margin: 5vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 90vw; /* 90% of viewport width */
+  height: 80vh; /* 80% of viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: beige;
+}
+
+.card {
+  background-color:ivory;
+  border: darkgoldenrod dashed;
+  padding: 20px;
+  border-radius: 10px;
+  margin:20px;
+}
+
+
+
+/*   gestion des crystaux fixes  */
+
+/*
+.crystal {
+  position: fixed;
+  bottom: 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 135px;
+  user-select: none;
+}
+
+.crystal span {
+  display: inline-block;
+  user-select: none;
+}
+
+
+#crystal1 {
+  left: 10%;
+  user-select: none;
+}
+#crystal1 span { transform: scaleY(4) rotate(0deg); }
+
+
+#crystal2 {
+  left: 20%;
+  user-select: none;
+ }
+#crystal2 span { transform: scaleY(5) rotate(0deg); }
+
+
+#crystal3 {
+  left: 30%;
+  user-select: none;
+ }
+#crystal3 span { transform: scaleY(4) rotate(0deg); }
+
+
+#crystal4 {
+  left: 40%;
+  user-select: none;
+ }
+#crystal4 span { transform: scaleY(5) rotate(0deg); }
+
+
+#crystal5 {
+  left: 50%;
+  user-select: none;
+ }
+#crystal5 span { transform: scaleY(7) rotate(0deg); }
+
+
+#crystal6 {
+  left: 60%;
+  user-select: none;
+}
+#crystal6 span { transform: scaleY(4) rotate(0deg); }
+
+
+#crystal7 {
+  left: 70%;
+  user-select: none;
+ }
+#crystal7 span {
+   transform: scaleY(5) rotate(0deg);
+   }
+
+  */
+
+/*   gestion de la mosaïque d'images   */
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.mosaic img {
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/*   gestion des gemmes qui apparaissent lors d'un clic   */
+
+/*
+.crystal-click {
+  position: fixed;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 135px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.crystal-click span {
+  display: inline-block;
+  transform: scaleY(4) rotate(0deg);
+}
+*/
+
+/*   gestion de la forteresse de la solitude   */
+
+/*
+.container-fortress {
+  perspective: 1000px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.left-crystals, .right-crystals {
+  position: absolute;
+  bottom: 0;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+.left-crystals {
+  left: 0;
+  transform: rotateY(45deg);
+}
+
+.right-crystals {
+  right: 0;
+  transform: rotateY(-45deg);
+}
+
+.crystal-fortress {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 10vh;
+  user-select: none;
+  transform: scaleY(2);
+}
+
+.crystal-fortress:nth-child(1) { bottom: 10%; }
+.crystal-fortress:nth-child(2) { bottom: 20%; }
+.crystal-fortress:nth-child(3) { bottom: 30%; }
+.crystal-fortress:nth-child(4) { bottom: 40%; }
+.crystal-fortress:nth-child(5) { bottom: 50%; }
+.crystal-fortress:nth-child(6) { bottom: 60%; }
+.crystal-fortress:nth-child(7) { bottom: 70%; }
+
+*/
