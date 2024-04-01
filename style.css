@@ -136,8 +136,13 @@ img {
   border-radius: 10%;
 }
 
-h1, h2, h3, h4, h5 {
-  color:#E0115F;
+h6 {
+  color:#E0115F !important;
+}
+
+h4 {
+  margin-top: 1em !important;
+  color:gray !important;
 }
 
 h6 {
