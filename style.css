@@ -1,18 +1,111 @@
-@media (max-width: 770px) {
-  .carousel-item .flex-row {
-    flex-direction: column;
+@media (min-width: 1512px) {
+  .card {
+    padding-left: 9vh;
+    padding-right: 26vh;
+    padding-top: 8vh;
+    margin: 20vh;
   }
-  .carousel-item .card {
-    margin: 0vh; /* Ajoute une marge de 2vh aux cartes à l'intérieur du carousel */
+  .carousel-item {
     background-color:#E0115F;
   }
-  .carousel-inner .carousel-item .card {
-    height: 810px !important;
+  span.carousel-control-next-icon {
+    height: 200px;
+    width: 200px;
   }
-  body {
-    overflow: scroll;
+  span.carousel-control-prev-icon {
+    height: 200px;
+    width: 200px;
   }
 }
+
+@media (min-width: 1290px) and (max-width: 1512px) {
+  .card {
+    padding-left: 9vh;
+    padding-right: 26vh;
+    padding-top: 8vh;
+    margin: 17vh;
+  }
+  .carousel-item {
+    background-color:#E0115F;
+  }
+  span.carousel-control-next-icon {
+    height: 200px;
+    width: 200px;
+  }
+  span.carousel-control-prev-icon {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 1080px) and (max-width: 1290px) {
+  .card {
+    padding-left: 9vh;
+    padding-right: 26vh;
+    padding-top: 8vh;
+    margin: 15vh;
+  }
+  .carousel-item {
+    background-color:#E0115F;
+  }
+  span.carousel-control-next-icon {
+    height: 200px;
+    width: 200px;
+  }
+  span.carousel-control-prev-icon {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 970px) and (max-width: 1080px) {
+  .card {
+    padding-left: 9vh;
+    padding-right: 26vh;
+    padding-top: 8vh;
+    margin: 10vh;
+  }
+  .carousel-item {
+    background-color:#E0115F;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 970px) {
+  .card {
+    margin: 10vh;
+    padding: 8vh;
+  }
+  .carousel-item {
+    background-color:#E0115F;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 770px) {
+  .carousel-item {
+    background-color:#E0115F;
+  }
+  .card {
+    margin: 7vh;
+    padding: 2vh;
+  }
+  img {
+    display: none;
+  }
+}
+
+@media (min-width: 150px) and (max-width: 430px) {
+  .card {
+    margin: 0vh;
+    padding: 2vh;
+  }
+  img {
+    display: none;
+  }
+  span {
+    background-color:#E0115F;
+  }
+}
+
 
 /* gestion des polices */
 
@@ -81,8 +174,7 @@ ol, li {
   font-size: 14pt;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 2vh;
-  margin: 18vh;
+
 }
 
 .carousel-inner {
