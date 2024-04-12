@@ -82,7 +82,7 @@
   }
 }
 
-@media (min-width: 430px) and (max-width: 770px) {
+@media (min-width: 563px) and (max-width: 770px) {
   .carousel-item {
     background-color:#E0115F;
   }
@@ -90,15 +90,26 @@
     margin: 7vh;
     padding: 2vh;
   }
-  img {
-    display: none;
+
+}
+
+@media (min-width: 430px) and (max-width: 563px) {
+  .carousel-item {
+    background-color:#E0115F;
   }
+  .card {
+    margin: 7vh;
+    padding: 2vh;
+    overflow: scroll;
+  }
+
 }
 
 @media (min-width: 150px) and (max-width: 430px) {
   .card {
     margin: 0vh;
     padding: 2vh;
+    overflow: scroll;
   }
   img {
     display: none;
@@ -182,6 +193,7 @@ ol, li {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  z-index: 1;
 }
 
 .carousel-inner .carousel-item .card {
@@ -201,4 +213,27 @@ ol, li {
 
 .reset-font-size {
   font-size: 12pt;
+}
+
+
+#background {
+  position: relative;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+#decoration {
+  zoom: 35;
+  left: -2px;
+  top: -53px;
+  z-index: 1;
+  position: absolute;
+  animation: rotate 360s linear infinite;
 }
