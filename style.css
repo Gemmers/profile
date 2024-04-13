@@ -1,3 +1,31 @@
+@media print {
+  #carouselExampleIndicators {
+      display: none;
+  }
+
+  #background, img {
+      display: none;
+  }
+
+  #printContent {
+    display: block !important;
+  }
+
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .card.cardToHide {
+    display: none !important;
+  }
+
+  .card > .cardToHide {
+    display: none !important;
+  }
+
+}
+
 @media (min-width: 1512px) {
   .card {
     padding-left: 9vh;
@@ -172,7 +200,7 @@ ol, li {
 
 /*   gestion des liens   */
 .link {
-  text-decoration: line;
+  text-decoration: underline;
   color: black;
 }
 
