@@ -1,0 +1,66 @@
+@media print {
+
+  h4 {
+    margin-bottom: 25px !important;
+    margin-top: 25px !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  #carouselExampleIndicators {
+      display: none;
+  }
+
+  #background, .media-query-picture-none {
+      display: none;
+  }
+
+  #printContent {
+    display: block;  /* Assure que le conteneur est visible et agit comme un bloc */
+    -webkit-column-count: 2; /* Nombre de colonnes pour Chrome, Safari */
+    -moz-column-count: 2;    /* Nombre de colonnes pour Firefox */
+    column-count: 2;         /* Nombre de colonnes standard */
+
+    -webkit-column-gap: 20px; /* Espace entre les colonnes pour Chrome, Safari */
+    -moz-column-gap: 20px;    /* Espace entre les colonnes pour Firefox */
+    column-gap: 20px;         /* Espace entre les colonnes standard */
+
+    width: 100%; /* Utilise toute la largeur disponible */
+    height: auto; /* Hauteur automatique pour contenir tout le contenu */
+    overflow: hidden; /* Empêche le débordement du contenu */
+}
+
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0px ;
+    padding: 0px ;
+  }
+
+  .card.cardToHide {
+    display: none !important;
+  }
+
+  .card > .cardToHide {
+    display: none !important;
+  }
+
+  .printContainer {
+    display: flex;
+
+    /* transform: rotate(90deg); */
+
+    /* border: 1px solid black; */
+
+  }
+
+  .rotate-90 {
+    transform: rotate(90deg); /* Rotation du qrcode linkedin */
+  }
+}
