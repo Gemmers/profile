@@ -1,3 +1,7 @@
+require('dotenv').config({ path: '.env.development' }); // Charger les variables d'environnement du fichier .env.development
+
+const accessToken = process.env.ACCESS_TOKEN; // Accéder à la variable d'environnement
+
 const accessToken = '${{ secrets.ACCESS_TOKEN }}';
 Cesium.Ion.defaultAccessToken = accessToken;
 

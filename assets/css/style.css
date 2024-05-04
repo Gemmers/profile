@@ -138,6 +138,14 @@
   float: left;
 }
 
+.text-custom {
+  color: white;
+}
+
+/* .card > h4 {
+  color: var(--text-custom) !important;
+} */
+
 /*   gestion des elements principaux   */
 
 body, html {
@@ -157,7 +165,6 @@ img {
 
 ul, li {
   list-style-type: none;
-  color: white;
 }
 
 ol, li {
@@ -167,10 +174,12 @@ ol, li {
 /*   gestion des liens   */
 .link {
   text-decoration: underline;
+  color: white;
 }
 
 .link:hover {
   text-decoration-color: none;
+  color:rgb(158, 216, 255);
 }
 
 /*   gestion des cadres   */
@@ -196,7 +205,6 @@ ol, li {
   position: relative;
   z-index: 1;
 
-  color: white;
   padding: 10px 20px;
   margin-top: 50px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);

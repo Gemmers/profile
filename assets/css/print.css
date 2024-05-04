@@ -13,11 +13,7 @@
     text-decoration: none;
   }
 
-  #carouselExampleIndicators {
-      display: none;
-  }
-
-  #background, .media-query-picture-none {
+  #background, #cesiumContainer, #carouselExampleIndicators, .hideForPrint {
       display: none;
   }
 

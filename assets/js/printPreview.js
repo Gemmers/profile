@@ -17,6 +17,14 @@ function cloneAndAppend(sourceSelector, targetElement) {
   console.log('All cards appended');
 }
 
+// Helper function to remove 'text-white' and 'text-custom' classes from all elements
+function removeTextClasses() {
+  const elements = document.querySelectorAll('.text-white, .text-custom');
+  elements.forEach(element => {
+    element.classList.remove('text-white', 'text-custom');
+  });
+}
+
 // Event listener for the print preview link
 printPreviewLink.addEventListener('click', function(event) {
   event.preventDefault();  // Prevent default link behavior
@@ -24,9 +32,14 @@ printPreviewLink.addEventListener('click', function(event) {
   const printContent = document.getElementById('printContent');
   clearElement(printContent);  // Clear existing content
 
-  // Ensure DOM updates are visual before adding new nodes
+  // Clone cards and append to printContent
+  cloneAndAppend('.card', printContent);
+
+  // Remove 'text-white' and 'text-custom' classes from all elements
+  removeTextClasses();
+
+  // Ensure DOM updates are visual before initiating print
   requestAnimationFrame(() => {
-    cloneAndAppend('.card', printContent);  // Clone cards and append
     window.print();  // Initiate print
   });
 });
