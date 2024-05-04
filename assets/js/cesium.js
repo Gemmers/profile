@@ -1,8 +1,12 @@
-require('dotenv').config({ path: '.env.development' }); // Charger les variables d'environnement du fichier .env.development
+// Utiliser l'accessToken en fonction du mode de développement
+let accessToken;
 
-const accessToken = process.env.ACCESS_TOKEN; // Accéder à la variable d'environnement
+if (window.isDevelopment) {
+    accessToken = window.env.ACCESS_TOKEN; // Accès à l'accessToken en mode développement
+} else {
+    accessToken = '${{ secrets.ACCESS_TOKEN }}'; // Accès à l'accessToken en mode production
+}
 
-const accessToken = '${{ secrets.ACCESS_TOKEN }}';
 Cesium.Ion.defaultAccessToken = accessToken;
 
 // Create a Cesium Viewer
