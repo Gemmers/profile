@@ -11,16 +11,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Indie+Flower&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.87/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
 </head>
 <body class="courgette-regular printContainer">
 
-    <div id="printContent" class="d-none d-print-block">
-      <!-- The content of the slides will be copied here -->
-    </div>
+  <div id="cesiumContainer"></div>
 
-    <div id="background">
-      <img id="decoration" src="assets/images/outline-gem_minified.svg" alt="image decorative">
-    </div>
+  <div id="printContent" class="d-none d-print-block">
+    <!-- The content of the slides will be copied here -->
+  </div>
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -60,10 +59,10 @@
           <div class="d-flex flex-row">
             <img src="assets/images/avatar.jpg" class="media-query-picture-none" alt="profile picture">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"> Actuellement en <strong>reconversion</strong> en Développement d'application Web</li>
-              <li class="list-group-item"> Actuellement en CDI depuis 2015 en tant que monteur-câbleur et tropicalisation en électronique</li>
+              <li class="list-group-item bg-transparent"> Actuellement en <strong>reconversion</strong> en Développement d'application Web</li>
+              <li class="list-group-item bg-transparent"> Actuellement en CDI depuis 2015 en tant que monteur-câbleur et tropicalisation en électronique</li>
               <!-- <li class="list-group-item"> Setup actuel : ruby 3.1.2p20 - Shell zsh - WSL ubuntu Git - VSCode</li> -->
-              <li class="list-group-item"> Préférence de travail : <strong>Distanciel</strong> en pair à pair ou binôme</li>
+              <li class="list-group-item bg-transparent"> Préférence de travail : <strong>Distanciel</strong> en pair à pair ou binôme</li>
             </ul>
           </div>
         </div>
@@ -78,23 +77,23 @@
             💬 Compétences Linguistiques
           </h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"> Français Natif</li>
-            <li class="list-group-item"> Anglais B1</li>
+            <li class="list-group-item bg-transparent"> Français Natif</li>
+            <li class="list-group-item bg-transparent"> Anglais B1</li>
           </ul>
           <h4 class="text-muted">
             🧮 Compétences Techniques
           </h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"> Ruby on Rails - Stimulus - Bootstrap - SCSS</li>
-            <li class="list-group-item"> Git - GitHub & Heroku</li>
-            <li class="list-group-item"> HTML5 - CSS3 - Ruby - Javascript -SQL</li>
+            <li class="list-group-item bg-transparent"> Ruby on Rails - Stimulus - Bootstrap - SCSS</li>
+            <li class="list-group-item bg-transparent"> Git - GitHub & Heroku</li>
+            <li class="list-group-item bg-transparent"> HTML5 - CSS3 - Ruby - Javascript -SQL</li>
           </ul>
           <h4 class="text-muted">
             🔄 Méthodologies
           </h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"> Prototyping Figma - Merise - UML</li>
-            <li class="list-group-item"> Pair Programming</li>
+            <li class="list-group-item bg-transparent"> Prototyping Figma - Merise - UML</li>
+            <li class="list-group-item bg-transparent"> Pair Programming</li>
           </ul>
         </div>
       </div>
@@ -109,13 +108,13 @@
             🎓 Certifications et Formations
           </h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+            <li class="list-group-item bg-transparent">
               <a href="assets/images/b.jpg" class="link" alt="diplome bac stg gsi" target="_blank">
                   Baccalauréat Technologique en série Sciences et Technologies de la Gestion spécialité Gestion des Systèmes d'Information (4 octobre 2007)
               </a>
             </li>
-            <li class="list-group-item"> <a href="https://www.codingame.com/certification/c9GIq3yrhEw0pqjn3b743Q" class="link" alt="diplome codingame" target="_blank">Certification CodinGame niveau bronze - Algorithmes - (12 Avril 2024)</a></li>
-            <li class="list-group-item"> <a href="https://kitt.lewagon.com/schoolings/38612/public_diploma?token=37882f1d82fc2685263970a95ee613cbd2b5522f5f66d0bc5e9f933d9b9b4d80" class="link" alt="diplome le Wagon" target="_blank">Diplôme Développement d'application Web - Le Wagon (29 Mars 2024)</a></li>
+            <li class="list-group-item bg-transparent"> <a href="https://www.codingame.com/certification/c9GIq3yrhEw0pqjn3b743Q" class="link" alt="diplome codingame" target="_blank">Certification CodinGame niveau bronze - Algorithmes - (12 Avril 2024)</a></li>
+            <li class="list-group-item bg-transparent"> <a href="https://kitt.lewagon.com/schoolings/38612/public_diploma?token=37882f1d82fc2685263970a95ee613cbd2b5522f5f66d0bc5e9f933d9b9b4d80" class="link" alt="diplome le Wagon" target="_blank">Diplôme Développement d'application Web - Le Wagon (29 Mars 2024)</a></li>
           </ul>
           <div class="d-none d-print-block d-flex flex-row">
             <img src="assets/images/bac_stg-qr-code.svg">
@@ -150,7 +149,7 @@
             <li class="mb-3">
               <div class="d-inline-flex align-items-center" title="Imprimer le CV" aria-label="Imprimer le CV">
                 <a href="#" id="printPreviewLink" class="link"><i class="fa-solid fa-print"></i>
-                <span class="reset-font-size ml-2">Aperçu avant impression</span></a>
+                <span class="reset-font-size ml-2">Veuillez cliquer ici pour imprimer ou télécharger mon CV</span></a>
               </div>
             </li>
           </ul>
@@ -169,9 +168,9 @@
           <div class="d-flex flex-row">
             <a href="https://www.parions.org" alt="lien homepage parions.org" target="_blank"><img src="assets/images/teamties.png" class="media-query-picture-none" alt="homepage screenshot from parions.org"></a>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"> <a href="https://github.com/MelissaPetit/GRANNYGRANNY" class="link" target="_blank">GRANNYGRANNY : Vivez une expérience enrichissante avec une grand-mère</a> - application web réalisée en équipe</li>
-              <li class="list-group-item"> <a href="https://github.com/Christophe-hubeaux/TeamTies" class="link" target="_blank">TEAMTIES : Teambuilding, paris entre collègues sur les prochains match de football</a> - application web réalisée en équipe - www.parions.org</li>
-              <li class="list-group-item"> <a href="https://gemmers.github.io/profile/" class="link" target="_blank">PROFILE : Mon CV en Ligne</a> - site statique réalisé seul</li>
+              <li class="list-group-item bg-transparent"> <a href="https://github.com/MelissaPetit/GRANNYGRANNY" class="link" target="_blank">GRANNYGRANNY : Vivez une expérience enrichissante avec une grand-mère</a> - application web réalisée en équipe</li>
+              <li class="list-group-item bg-transparent"> <a href="https://github.com/Christophe-hubeaux/TeamTies" class="link" target="_blank">TEAMTIES : Teambuilding, paris entre collègues sur les prochains match de football</a> - application web réalisée en équipe - www.parions.org</li>
+              <li class="list-group-item bg-transparent"> <a href="https://gemmers.github.io/profile/" class="link" target="_blank">PROFILE : Mon CV en Ligne</a> - site statique réalisé seul</li>
             </ul>
           </div>
         </div>
@@ -187,7 +186,7 @@
             💡 Projets d'application web
           </h4>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="https://docs.google.com/presentation/d/12wGYXJj_7TbrY7Zz5R75nARYruBKX4B3SyO_SLeeEeQ/edit?usp=drive_link" class="link" target="_blank">WaterCheck analyse vos rapports et vous donne des recommendations sur la qualité de votre eau</a></li>
+            <li class="list-group-item bg-transparent"><a href="https://docs.google.com/presentation/d/12wGYXJj_7TbrY7Zz5R75nARYruBKX4B3SyO_SLeeEeQ/edit?usp=drive_link" class="link" target="_blank">WaterCheck analyse vos rapports et vous donne des recommendations sur la qualité de votre eau</a></li>
             <!-- <li class="list-group-item">[brouillon] Jeu isométrique multijoueur pour apprendre l'allemand</li>
             <li class="list-group-item">[brouillon] Gestion de budget avec tracker et recommendations</li> -->
           </ul>
@@ -201,15 +200,14 @@
             <strong>CV de Sylvain Bohrer</strong>
           </h6>
           <h4 class="text-muted">
-            🎨 Hobbies & Likes
+            🎨 Actuellement
           </h4>
           <div class="d-flex flex-row">
-            <img src="assets/images/butterfly.jpg" alt="butterfly bow tie">
+
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"> Making prompt to generate AI pictures</li>
-              <li class="list-group-item"> Reading some books</li>
-              <li class="list-group-item"> JabCode, QRcode</li>
-              <li class="list-group-item"> Autostereograms</li>
+              <li class="list-group-item bg-transparent">Actuellement je suis en cours de recherche d'une entreprise pour réaliser une alternance de 12 mois avec l'école Simplon</li>
+              <li class="list-group-item bg-transparent">Le domaine d'activité recherché de l'entreprise est lié à la formation :</li>
+              <li class="list-group-item bg-transparent">Concepteur et développeur d'applications spécialité Python (intègre le nouveau référentiel DevOps)</li>
             </ul>
           </div>
         </div>
@@ -227,10 +225,13 @@
     </button>
   </div>
 
-
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/f24f012cae.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"></script> -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.87/Build/Cesium/Cesium.js"></script>
   <script src="assets/js/printPreview.js"></script>
+  <script src="assets/js/cesium.js"></script>
+
 </body>
 </html>
