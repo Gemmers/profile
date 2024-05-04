@@ -1,0 +1,30 @@
+name: Replace Access Token
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  replace-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Replace access token
+        run: |
+          sed -i "s/'YOUR_ACCESS_TOKEN'/${{ secrets.ACCESS_TOKEN }}/g" assets/js/cesium.js
+          if [ $? -ne 0 ]; then
+            echo "Token replacement failed"
+            exit 1
+          fi
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/js/cesium.js
+          git commit -m "Replace access token"
+          git push
