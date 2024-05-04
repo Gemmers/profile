@@ -1,10 +1,10 @@
 // Utiliser l'accessToken en fonction du mode de développement
 let accessToken;
 
-if (window.isDevelopment) {
-    accessToken = window.env.ACCESS_TOKEN; // Accès à l'accessToken en mode développement
+if (!window.isDevelopment) {
+  accessToken = '${{ secrets.ACCESS_TOKEN }}'; // Accès à l'accessToken en mode production
 } else {
-    accessToken = '${{ secrets.ACCESS_TOKEN }}'; // Accès à l'accessToken en mode production
+  accessToken = window.env.ACCESS_TOKEN; // Accès à l'accessToken en mode développement
 }
 
 Cesium.Ion.defaultAccessToken = accessToken;
