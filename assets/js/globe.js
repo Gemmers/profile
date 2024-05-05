@@ -1,5 +1,5 @@
 // Utiliser l'accessToken en fonction du mode de développement
-let accessToken;
+let accessToken ;
 
 if (!window.isDevelopment) {
   accessToken = '${{ secrets.ACCESS_TOKEN }}'; // Accès à l'accessToken en mode production
@@ -22,6 +22,10 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
   timeline: false,
   geocoder: false,
   sceneMode: Cesium.SceneMode.SCENE3D,
+  imageryProvider:new Cesium.ArcGisMapServerImageryProvider({
+    url: 'https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer'
+  }),
+
 });
 
 // Enable lighting for the globe
