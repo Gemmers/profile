@@ -138,9 +138,9 @@
   float: left;
 }
 
-/* .text-custom {
+ .text-custom {
   color: white;
-} */
+}
 
 /* .card > h4 {
   color: var(--text-custom) !important;
@@ -174,12 +174,12 @@ ol, li {
 /*   gestion des liens   */
 .link {
   text-decoration: underline;
-/*   color: white; */
+  color: white;
 }
 
 .link:hover {
   text-decoration-color: none;
-/*   color:rgb(158, 216, 255); */
+  color:rgb(158, 216, 255);
 }
 
 /*   gestion des cadres   */
