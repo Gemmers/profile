@@ -173,7 +173,7 @@ ol, li {
 
 /*   gestion des liens   */
 .link {
-  text-decoration: underline;
+  text-decoration: none;
   color: white;
 }
 
