@@ -150,7 +150,7 @@ body {
   opacity: 0.8;
 }
 
-.contenu-vertical {
+.box-vignette {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -158,14 +158,13 @@ body {
   justify-content: center;
   min-width: 0;
 }
-.contenu-vertical .visuel {
+.box-vignette .visuel {
   flex: 1;
   display: flex;
-  flex-direction: column;
   gap: 6px;
   min-height: 0;
 }
-.contenu-vertical .visuel-image {
+.box-vignette .visuel-image {
   flex: 1;
   width: 100%;
   height: 100%;
@@ -176,27 +175,6 @@ body {
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0 0 20px rgba(92, 117, 122, 0.12), 0 0 12px rgba(92, 117, 122, 0.1);
-}
-.contenu-vertical .visuel-legende {
-  font-size: 9px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  text-align: center;
-  flex-shrink: 0;
-}
-.contenu-vertical .placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.contenu-vertical .placeholder .placeholder-label {
-  position: relative;
-  z-index: 4;
-  font-size: 9px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  opacity: 0.45;
 }
 
 .card-bas {
@@ -283,6 +261,23 @@ body {
   .card-haut {
     flex-direction: column;
     gap: 16px;
+  }
+  .box-vignette {
+    flex-direction: row;
+    gap: 8px;
+    min-height: 0;
+  }
+  .box-vignette .visuel {
+    flex: 1;
+    min-width: 0;
+  }
+  .box-vignette .visuel-image {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .contenu-principal h1 {
     font-size: 22px;
