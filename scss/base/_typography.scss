@@ -1,9 +1,0 @@
-// ============================================
-// TYPOGRAPHIE GLOBALE
-// ============================================
-@use '../abstracts/variables' as *;
-
-body {
-  font-family: $font-mono;
-  letter-spacing: $ls-normal;
-}
