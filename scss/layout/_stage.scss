@@ -1,0 +1,23 @@
+// ============================================
+// STAGE — grille 8 colonnes, card centrée
+// ============================================
+@use '../abstracts/variables' as *;
+
+.stage {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;      // centrage vertical
+  justify-items: stretch;
+  padding: 0;
+}
+
+// La card occupe les 3 colonnes centrales (4, 5, 6 sur 8)
+.card {
+  grid-column: 4 / 7;
+  height: 50vh;             // 50% de la hauteur d'écran
+                            // → 25% d'espace en haut + 25% en bas
+  min-height: 420px;
+}

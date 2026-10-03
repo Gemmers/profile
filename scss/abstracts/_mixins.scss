@@ -1,0 +1,101 @@
+// ============================================
+// MIXINS RÉUTILISABLES
+// ============================================
+@use 'variables' as *;
+
+// --- Effet verre givré (cards LED) ---
+@mixin verre-givre($opacite: 0.08) {
+  position: relative;
+  background: rgba(255, 255, 255, $opacite);
+  backdrop-filter: blur(16px) saturate(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(1.05);
+  border: 1px solid rgba($blanc, 0.18);
+  border-radius: $radius-card;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 0 30px rgba($ardoise, 0.10),
+    0 30px 70px -25px rgba($ardoise, 0.35),
+    inset 0 0 40px rgba($rose, 0.15);
+}
+
+// --- Coins LED (les 4 points lumineux) ---
+@mixin coins-led {
+  .corner {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: $ardoise;
+    border-radius: 50%;
+    opacity: 0.55;
+    box-shadow: 0 0 6px rgba($ardoise, 0.7);
+
+    &.tl { top: 12px; left: 12px; }
+    &.tr { top: 12px; right: 12px; }
+    &.bl { bottom: 12px; left: 12px; }
+    &.br { bottom: 12px; right: 12px; }
+  }
+}
+
+// --- Titre avec lettres espacées ---
+@mixin titre-espace($size: 16px, $ls: $ls-wide) {
+  font-size: $size;
+  letter-spacing: $ls;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+// --- Guillochage (trames superposées) ---
+@mixin guillochage($opacite: 0.22) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba($ardoise, $opacite) 0px,
+      rgba($ardoise, $opacite) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba($ardoise, $opacite - 0.04) 0px,
+      rgba($ardoise, $opacite - 0.04) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+// --- Accessibilité : réduire les animations ---
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// --- Breakpoints (du plus large au plus petit) ---
+@mixin max-xl {
+  @media (max-width: $bp-xl) { @content; }
+}
+@mixin max-desktop {
+  @media (max-width: $bp-desktop) { @content; }
+}
+@mixin max-petit {
+  @media (max-width: $bp-petit) { @content; }
+}
+@mixin max-tablette {
+  @media (max-width: $bp-tablette) { @content; }
+}
+@mixin max-mobile {
+  @media (max-width: $bp-mobile) { @content; }
+}

@@ -1,0 +1,43 @@
+// ============================================
+// VARIABLES GLOBALES
+// ============================================
+
+// --- Couleurs ---
+$blanc:        #FBFAF9;
+$ardoise:      #5C757A;
+$rose:         #FFE5E4;
+$rose-focus:   #FFB8B4;
+
+// --- Couleurs dérivées (calculées) ---
+$ardoise-10:   rgba($ardoise, 0.10);
+$ardoise-30:   rgba($ardoise, 0.30);
+$ardoise-50:   rgba($ardoise, 0.50);
+$blanc-45:     rgba(255, 255, 255, 0.45);
+$blanc-60:     rgba(255, 255, 255, 0.60);
+
+// --- Typographie ---
+$font-mono:    'Courier New', monospace;
+$ls-tight:     0.06em;
+$ls-normal:    0.08em;
+$ls-wide:      0.25em;
+$ls-xwide:     0.35em;
+$ls-xxwide:    0.50em;
+
+// --- Espacements ---
+$gap-stage:    36px;
+$gap-cards:    22px;
+$padding-card: 30px 32px;
+
+// --- Rayons ---
+$radius-card:  18px;
+$radius-mini:  6px;
+
+// --- Transitions ---
+$ease-doux:    cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Breakpoints ---
+$bp-xl:        1600px;
+$bp-desktop:   1200px;
+$bp-petit:     1050px;
+$bp-tablette:  768px;
+$bp-mobile:    480px;

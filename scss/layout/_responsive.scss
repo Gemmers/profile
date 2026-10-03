@@ -1,0 +1,75 @@
+// ============================================
+// RESPONSIVE — espacements adaptatifs
+// ============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// --- Desktop XL (> 1600px) : 25% d'espace ---
+// Valeur par défaut dans _stage.scss : height: 50vh
+
+// --- Desktop (1200–1600px) : 20% d'espace ---
+@include max-xl {
+  .card {
+    height: 60vh;
+  }
+}
+
+// --- Petit desktop (1050–1200px) : 15% d'espace ---
+@include max-desktop {
+  .card {
+    height: 70vh;
+  }
+}
+
+// --- Tablette (768–1050px) : 12% d'espace ---
+@include max-petit {
+  .card {
+    height: 76vh;
+    min-height: 420px;
+  }
+
+  .contenu-principal h1 { font-size: 24px; }
+}
+
+// --- Grande mobile (480–768px) : 8% d'espace ---
+@include max-tablette {
+  .stage {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .card {
+    grid-column: 1 / -1;
+    height: 84vh;
+    min-height: 0;
+  }
+
+  .card-haut {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contenu-principal h1 { font-size: 22px; }
+  .contenu-principal p  { font-size: 12px; }
+}
+
+// --- Mobile (< 480px) : 5% d'espace ---
+@include max-mobile {
+  .stage {
+    padding: 0 10px;
+  }
+
+  .card {
+    height: 90vh;
+    padding: 20px 18px;
+  }
+
+  .contenu-principal h1 { font-size: 18px; }
+  .contenu-principal p  { font-size: 11px; }
+
+  .card-bas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
