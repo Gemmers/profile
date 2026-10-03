@@ -8,16 +8,12 @@
   z-index: 1;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  align-items: center;      // centrage vertical
-  justify-items: stretch;
-  padding: 0;
+  place-items: center;   // centrage horizontal ET vertical
+  padding: 2rem;
 }
 
-// La card occupe les 3 colonnes centrales (4, 5, 6 sur 8)
 .card {
-  grid-column: 4 / 7;
-  height: 50vh;             // 50% de la hauteur d'écran
-                            // → 25% d'espace en haut + 25% en bas
+  aspect-ratio: 3 / 2;
+  width: 520px;
   min-height: 420px;
 }

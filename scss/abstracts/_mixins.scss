@@ -36,46 +36,6 @@
   }
 }
 
-// --- Titre avec lettres espacées ---
-@mixin titre-espace($size: 16px, $ls: $ls-wide) {
-  font-size: $size;
-  letter-spacing: $ls;
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-// --- Guillochage (trames superposées) ---
-@mixin guillochage($opacite: 0.22) {
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba($ardoise, $opacite) 0px,
-      rgba($ardoise, $opacite) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    pointer-events: none;
-    z-index: 2;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba($ardoise, $opacite - 0.04) 0px,
-      rgba($ardoise, $opacite - 0.04) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
 // --- Accessibilité : réduire les animations ---
 @mixin reduced-motion {
   @media (prefers-reduced-motion: reduce) {
@@ -98,4 +58,10 @@
 }
 @mixin max-mobile {
   @media (max-width: $bp-mobile) { @content; }
+}
+@mixin max-mini-mobile {
+  @media (max-width: $bp-mini-mobile) { @content; }
+}
+@mixin max-smartwatch {
+  @media (max-width: $bp-smartwatch) { @content; }
 }

@@ -6,5 +6,4 @@
 
 .led {
   @include verre-givre();
-  @include coins-led;
 }
