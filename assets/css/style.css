@@ -41,7 +41,7 @@ body.font-accessible {
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 300vh;
+  min-height: 400vh;
   padding: max(1rem, 50vh - 210px) 2rem 0;
 }
 
@@ -54,12 +54,19 @@ body.font-accessible {
 
 .scroll-anchor {
   position: absolute;
-  top: 100vh;
   left: 0;
   width: 1px;
   height: 1px;
   visibility: hidden;
   pointer-events: none;
+}
+
+.scroll-anchor--restauration {
+  top: 100vh;
+}
+
+.scroll-anchor--whoami {
+  top: 200vh;
 }
 
 .led {
@@ -134,19 +141,34 @@ body.font-accessible {
   opacity: 0;
 }
 
+.card-haut--whoami {
+  opacity: 0;
+}
+
 @keyframes fade-photographie {
-  0%, 42% {
+  0%, 27% {
     opacity: 1;
   }
-  50%, 100% {
+  34%, 100% {
     opacity: 0;
   }
 }
 @keyframes fade-restauration {
-  0%, 50% {
+  0%, 34% {
     opacity: 0;
   }
-  58%, 100% {
+  41%, 59% {
+    opacity: 1;
+  }
+  66%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-whoami {
+  0%, 66% {
+    opacity: 0;
+  }
+  73%, 100% {
     opacity: 1;
   }
 }
@@ -164,6 +186,10 @@ body.font-accessible {
     animation: fade-restauration 1s linear both;
     animation-timeline: scroll(root block);
   }
+  .card-haut--whoami {
+    animation: fade-whoami 1s linear both;
+    animation-timeline: scroll(root block);
+  }
   .footer-logo {
     animation: rotation-logo 1s linear both;
     animation-timeline: scroll(root block);
@@ -177,28 +203,43 @@ body.font-accessible {
   min-width: 0;
 }
 .contenu-principal .etiquette {
-  font-size: 10px;
-  letter-spacing: 0.5em;
+  font-size: 11px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  opacity: 0.5;
+  opacity: 1;
   margin-bottom: 16px;
 }
 .contenu-principal h1 {
   font-size: 28px;
-  line-height: 1.35;
+  line-height: 1.25;
   letter-spacing: 0.06em;
   font-weight: 400;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .contenu-principal .focus-mot {
-  color: #FFB8B4;
-  text-shadow: 0 0 14px rgba(255, 184, 180, 0.55);
+  color: #FFF4F3;
+  text-shadow: 0 0 10px rgba(255, 244, 243, 0.25);
 }
 .contenu-principal p {
-  font-size: 13px;
-  line-height: 1.9;
-  letter-spacing: 0.1em;
-  opacity: 0.8;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  opacity: 1;
+}
+
+.qrcode-image {
+  display: block;
+  flex: 0 0 64px;
+  align-self: flex-start;
+  width: 64px;
+  height: 64px;
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.card-haut--whoami .contenu-principal h1 {
+  font-size: 24px;
 }
 
 .box-vignette {
@@ -307,7 +348,7 @@ body.font-accessible {
     font-size: 22px;
   }
   .contenu-principal p {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 @media (max-width: 480px) {
@@ -327,7 +368,7 @@ body.font-accessible {
     font-size: 18px;
   }
   .contenu-principal p {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 @media (max-width: 360px) {
@@ -343,7 +384,7 @@ body.font-accessible {
     font-size: 18px;
   }
   .contenu-principal p {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 @media (max-width: 240px) {
@@ -414,7 +455,7 @@ body.font-accessible {
     letter-spacing: 0;
   }
   p {
-    font-size: 10px;
+    font-size: 12px;
     margin: 0 0 0.5rem 0;
     opacity: 1;
   }

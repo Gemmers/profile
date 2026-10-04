@@ -36,14 +36,24 @@
   opacity: 0;
 }
 
+.card-haut--whoami {
+  opacity: 0;
+}
+
 @keyframes fade-photographie {
-  0%, 42% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+  0%, 27% { opacity: 1; }
+  34%, 100% { opacity: 0; }
 }
 
 @keyframes fade-restauration {
-  0%, 50% { opacity: 0; }
-  58%, 100% { opacity: 1; }
+  0%, 34% { opacity: 0; }
+  41%, 59% { opacity: 1; }
+  66%, 100% { opacity: 0; }
+}
+
+@keyframes fade-whoami {
+  0%, 66% { opacity: 0; }
+  73%, 100% { opacity: 1; }
 }
 
 @keyframes rotation-logo {
@@ -58,6 +68,11 @@
 
   .card-haut--restauration {
     animation: fade-restauration 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  .card-haut--whoami {
+    animation: fade-whoami 1s linear both;
     animation-timeline: scroll(root block);
   }
 
@@ -76,32 +91,46 @@
   min-width: 0;
 
   .etiquette {
-    font-size: 10px;
-    letter-spacing: $ls-xxwide;
+    font-size: 11px;
+    letter-spacing: $ls-wide;
     text-transform: uppercase;
-    opacity: 0.5;
+    opacity: 1;
     margin-bottom: 16px;
   }
 
   h1 {
     font-size: 28px;
-    line-height: 1.35;
+    line-height: 1.25;
     letter-spacing: $ls-tight;
     font-weight: 400;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
   .focus-mot {
-    color: $rose-focus;
-    text-shadow: 0 0 14px rgba($rose-focus, 0.55);
+    color: #FFF4F3;
+    text-shadow: 0 0 10px rgba(#FFF4F3, 0.25);
   }
 
   p {
-    font-size: 13px;
-    line-height: 1.9;
-    letter-spacing: 0.1em;
-    opacity: 0.8;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    opacity: 1;
   }
+}
+
+.qrcode-image {
+  display: block;
+  flex: 0 0 64px;
+  align-self: flex-start;
+  width: 64px;
+  height: 64px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card-haut--whoami .contenu-principal h1 {
+  font-size: 24px;
 }
 
 // --- Contenu vertical ---

@@ -6,7 +6,7 @@
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 300vh;
+  min-height: 400vh;
   padding: max(1rem, calc(50vh - 210px)) 2rem 0;
 }
 
@@ -19,10 +19,17 @@
 
 .scroll-anchor {
   position: absolute;
-  top: 100vh;
   left: 0;
   width: 1px;
   height: 1px;
   visibility: hidden;
   pointer-events: none;
+}
+
+.scroll-anchor--restauration {
+  top: 100vh;
+}
+
+.scroll-anchor--whoami {
+  top: 200vh;
 }
