@@ -3,7 +3,19 @@
 // ============================================
 @use '../abstracts/variables' as *;
 
+@font-face {
+  font-family: 'Doto';
+  src: url('../fonts/Doto-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 body {
-  font-family: $font-mono;
+  font-family: $font-doto;
   letter-spacing: $ls-normal;
+}
+
+body.font-accessible {
+  font-family: $font-mono;
 }

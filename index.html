@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<link rel="icon" href="favicon_io/favicon.ico?v=2" sizes="any">
+  
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png?v=2">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
 <link rel="stylesheet" href="assets/css/style.css">
-<title>Sylvain Bohrer</title>
+<title>Sylvain Bohrer Portfolio</title>
 </head>
 <body>
 
 <main class="stage">
 
   <article class="card" aria-label="Carte de visite">
-    <div class="card-haut">
+    <div class="card-contenus">
+      <div class="card-haut card-haut--photographie">
+        <section class="contenu-principal">
+          <div class="etiquette">01 — Photographie</div>
+          <h1 class="displaynone-max-smartwatch">Capturer l'<span class="focus-mot">instant</span>, tel qu'il est.</h1>
+          <p>
+            Photographe passionné, je saisis les émotions spontanées de vos enfants, de votre famille et de vos amis, ainsi que les moments précieux de votre mariage.
+          </p>
+        </section>
 
-      <!-- Contenu principal : -->
-      <section class="contenu-principal">
-        <div class="etiquette">01 — Photographie</div>
-        <h1 class="displaynone-max-smartwatch">Capturer l'<span class="focus-mot">instant</span>, tel qu'il est.</h1>
-        <p>
-          Photographe passionné, je saisie en priorité les moments d'émotions spontanées de vos enfants, de votre famille et amis lors de votre mariage.
-        </p>
-      </section>
+        <aside class="box-vignette displaynone-max-smartwatch">
+          <img src="assets/images/p1.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
+          <img src="assets/images/p2.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
+          <img src="assets/images/p3.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
+        </aside>
+      </div>
 
-      <!-- Contenu vertical : -->
-      <aside class="box-vignette displaynone-max-smartwatch">
-          <img src="assets/images/p1.svg" alt="Portrait enfant" class="visuel-image displaynone-max-smartwatch">
-          <img src="assets/images/p2.svg" alt="Portrait enfant" class="visuel-image displaynone-max-mini-mobile displaynone-max-smartwatch">
-          <img src="assets/images/p3.svg" alt="Portrait enfant" class="visuel-image displaynone-max-mini-mobile displaynone-max-smartwatch">
-      </aside>
+      <div class="card-haut card-haut--restauration">
+        <section class="contenu-principal">
+          <div class="etiquette">02 — Restauration de photos anciennes</div>
+          <h1 class="displaynone-max-smartwatch">Redonner vie à vos <span class="focus-mot">souvenirs</span>.</h1>
+          <p>
+            Je restaure vos photographies anciennes en atténuant les traces du temps, pour préserver et transmettre vos souvenirs de famille.
+          </p>
+        </section>
 
+        <aside class="box-vignette displaynone-max-smartwatch">
+          <img src="assets/images/restore2.svg" alt="Portrait avant restauration" class="visuel-image displaynone-max-smartwatch">
+          <img src="assets/images/restore1.svg" alt="Portrait après restauration" class="visuel-image displaynone-max-smartwatch">
+        </aside>
+      </div>
     </div>
 
     <!-- footer -->
@@ -45,6 +62,8 @@
     </footer>
 
   </article>
+
+  <span id="restauration" class="scroll-anchor" aria-hidden="true"></span>
 
 </main>
 

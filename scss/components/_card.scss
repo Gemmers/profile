@@ -12,15 +12,59 @@
   flex-direction: column;   // haut puis bas
   padding: 28px;
   overflow: hidden;
+  position: sticky;
+  top: max(1rem, calc(50vh - 210px));
+}
+
+.card-contenus {
+  position: relative;
+  flex: 3;
+  min-height: 0;
 }
 
 // --- Rangée du haut  ---
 .card-haut {
-  flex: 3;                  // 3 parts sur 4
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: row;      // contenu principal + vertical
   gap: 24px;
   min-height: 0;            // permet au flex de rétrécir
+}
+
+.card-haut--restauration {
+  opacity: 0;
+}
+
+@keyframes fade-photographie {
+  0%, 42% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes fade-restauration {
+  0%, 50% { opacity: 0; }
+  58%, 100% { opacity: 1; }
+}
+
+@keyframes rotation-logo {
+  to { transform: rotate(1turn); }
+}
+
+@supports (animation-timeline: scroll()) {
+  .card-haut--photographie {
+    animation: fade-photographie 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  .card-haut--restauration {
+    animation: fade-restauration 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  .footer-logo {
+    animation: rotation-logo 1s linear both;
+    animation-timeline: scroll(root block);
+  }
 }
 
 // --- Contenu principal ---
@@ -87,15 +131,16 @@
 
 // --- footer---
 .box-footer {
-  flex: 0 0 64px;
+  flex: 0 0 32px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
   margin-top: 12px;
-  padding-top: 8px;
+  padding-top: 0px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0px;
 }
 
 .footer-logo {

@@ -4,33 +4,62 @@
   padding: 0;
 }
 
-html,
-body {
+html {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #5C757A;
-  color: #FBFAF9;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  font-family: "Courier New", monospace;
+  min-height: 100%;
+  background: #5C757A;
+  color: #FFFFFF;
+}
+
+@font-face {
+  font-family: "Doto";
+  src: url("../fonts/Doto-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+body {
+  font-family: "Doto", "Courier New", monospace;
   letter-spacing: 0.08em;
+}
+
+body.font-accessible {
+  font-family: "Courier New", monospace;
 }
 
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
+  min-height: 300vh;
+  padding: max(1rem, 50vh - 210px) 2rem 0;
 }
 
 .card {
   aspect-ratio: 3/2;
   width: 520px;
   min-height: 420px;
+  margin: 0 auto;
+}
+
+.scroll-anchor {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .led {
@@ -38,7 +67,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px) saturate(1.05);
   -webkit-backdrop-filter: blur(16px) saturate(1.05);
-  border: 1px solid rgba(251, 250, 249, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 18px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset, 0 0 30px rgba(92, 117, 122, 0.1), 0 30px 70px -25px rgba(92, 117, 122, 0.35), inset 0 0 40px rgba(255, 229, 228, 0.15);
 }
@@ -48,13 +77,9 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px) saturate(1.05);
   -webkit-backdrop-filter: blur(16px) saturate(1.05);
-  border: 1px solid rgba(251, 250, 249, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 18px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset, 0 0 30px rgba(92, 117, 122, 0.1), 0 30px 70px -25px rgba(92, 117, 122, 0.35), inset 0 0 40px rgba(255, 229, 228, 0.15);
-  display: flex;
-  flex-direction: column;
-  padding: 28px;
-  overflow: hidden;
 }
 .card .corner {
   position: absolute;
@@ -81,15 +106,69 @@ body {
   bottom: 12px;
   right: 12px;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  overflow: hidden;
+  position: sticky;
+  top: max(1rem, 50vh - 210px);
+}
+
+.card-contenus {
+  position: relative;
+  flex: 3;
+  min-height: 0;
+}
 
 .card-haut {
-  flex: 3;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: row;
   gap: 24px;
   min-height: 0;
 }
 
+.card-haut--restauration {
+  opacity: 0;
+}
+
+@keyframes fade-photographie {
+  0%, 42% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-restauration {
+  0%, 50% {
+    opacity: 0;
+  }
+  58%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes rotation-logo {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .card-haut--photographie {
+    animation: fade-photographie 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+  .card-haut--restauration {
+    animation: fade-restauration 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+  .footer-logo {
+    animation: rotation-logo 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+}
 .contenu-principal {
   flex: 3;
   display: flex;
@@ -136,7 +215,8 @@ body {
   width: 100px;
   height: 100px;
   min-height: 0;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.05);
@@ -144,15 +224,16 @@ body {
 }
 
 .box-footer {
-  flex: 0 0 64px;
+  flex: 0 0 32px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
   margin-top: 12px;
-  padding-top: 8px;
+  padding-top: 0px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0px;
 }
 
 .footer-logo {
@@ -160,7 +241,8 @@ body {
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .footer-texte {
@@ -178,7 +260,7 @@ body {
 @media (max-width: 768px) {
   .stage {
     grid-template-columns: 1fr;
-    padding: 0 16px;
+    padding: 1rem 16px 0;
   }
   .card {
     width: 100%;
@@ -188,7 +270,12 @@ body {
     aspect-ratio: auto;
   }
   .card-haut {
-    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card-contenus {
+    flex: none;
+    height: 350px;
   }
   .contenu-principal,
   .box-vignette {
@@ -210,10 +297,6 @@ body {
   .footer-logo {
     width: 40px;
     height: 40px;
-  }
-  .card-haut {
-    flex-direction: column;
-    gap: 16px;
   }
   .box-vignette {
     flex-direction: row;
@@ -256,12 +339,6 @@ body {
     aspect-ratio: auto;
     padding: 20px 18px;
   }
-  .displaynone-max-mini-mobile {
-    display: none;
-  }
-  .box-vignette .visuel-image.displaynone-max-mini-mobile {
-    display: none;
-  }
   .contenu-principal h1 {
     font-size: 18px;
   }
@@ -286,6 +363,23 @@ body {
     aspect-ratio: auto;
     transform: none;
   }
+  .stage {
+    min-height: 0;
+    padding: 0;
+  }
+  .card {
+    position: static;
+  }
+  .card-contenus {
+    display: grid;
+    height: auto;
+    gap: 1rem;
+  }
+  .card-haut {
+    position: static;
+    opacity: 1;
+    animation: none;
+  }
   .led {
     background: none;
     backdrop-filter: none;
@@ -304,7 +398,7 @@ body {
     display: none;
   }
   body {
-    font-family: monospace;
+    font-family: "Courier New", monospace;
     font-size: 10px;
     line-height: 1.5;
     letter-spacing: 0;
@@ -337,5 +431,57 @@ body {
     display: none;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
+@media (min-width: 241px) {
+  @supports not (animation-timeline: scroll()) {
+    .stage {
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .card {
+      position: relative;
+      top: auto;
+      height: auto;
+      aspect-ratio: auto;
+      margin: 0 auto;
+    }
+    .card-contenus {
+      display: grid;
+      flex: none;
+      height: auto;
+      gap: 1rem;
+    }
+    .card-haut {
+      position: static;
+      min-height: 324px;
+      opacity: 1;
+    }
+  }
+}
+@media (min-width: 241px) and (prefers-reduced-motion: reduce) {
+  .stage {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  .card {
+    position: relative;
+    top: auto;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0 auto;
+  }
+  .card-contenus {
+    display: grid;
+    flex: none;
+    height: auto;
+    gap: 1rem;
+  }
+  .card-haut {
+    position: static;
+    min-height: 324px;
+    opacity: 1;
+    animation: none;
+  }
+  .footer-logo {
+    animation: none;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -6,14 +6,23 @@
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;   // centrage horizontal ET vertical
-  padding: 2rem;
+  min-height: 300vh;
+  padding: max(1rem, calc(50vh - 210px)) 2rem 0;
 }
 
 .card {
   aspect-ratio: 3 / 2;
   width: 520px;
   min-height: 420px;
+  margin: 0 auto;
+}
+
+.scroll-anchor {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  pointer-events: none;
 }

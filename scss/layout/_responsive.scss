@@ -13,7 +13,7 @@
 @include max-tablette {
   .stage {
     grid-template-columns: 1fr;
-    padding: 0 16px;
+    padding: 1rem 16px 0;
   }
 
   .card {
@@ -25,7 +25,13 @@
   }
 
   .card-haut {
-    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card-contenus {
+    flex: none;
+    height: 350px;
   }
 
   .contenu-principal,
@@ -52,11 +58,6 @@
   .footer-logo {
     width: 40px;
     height: 40px;
-  }
-
-  .card-haut {
-    flex-direction: column;
-    gap: 16px;
   }
 
   .box-vignette {
@@ -102,14 +103,6 @@
     padding: 20px 18px;
   }
 
-  .displaynone-max-mini-mobile {
-    display: none;
-  }
-
-  .box-vignette .visuel-image.displaynone-max-mini-mobile {
-    display: none;
-  }
-
   .contenu-principal h1 { font-size: 18px; }
   .contenu-principal p  { font-size: 11px; }
 }
@@ -135,6 +128,27 @@
     transform: none;
   }
 
+  .stage {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .card {
+    position: static;
+  }
+
+  .card-contenus {
+    display: grid;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .card-haut {
+    position: static;
+    opacity: 1;
+    animation: none;
+  }
+
   // 2. On supprime tout le décor
   .led {
     background: none;
@@ -158,7 +172,7 @@
 
   // 4. Typographie adaptée à un écran minuscule
   body {
-    font-family: monospace;
+    font-family: $font-mono;
     font-size: 10px;
     line-height: 1.5;
     letter-spacing: 0;
@@ -197,4 +211,67 @@
     display: none;
   }
 
+}
+
+@media (min-width: 241px) {
+  @supports not (animation-timeline: scroll()) {
+    .stage {
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .card {
+      position: relative;
+      top: auto;
+      height: auto;
+      aspect-ratio: auto;
+      margin: 0 auto;
+    }
+
+    .card-contenus {
+      display: grid;
+      flex: none;
+      height: auto;
+      gap: 1rem;
+    }
+
+    .card-haut {
+      position: static;
+      min-height: 324px;
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage {
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .card {
+      position: relative;
+      top: auto;
+      height: auto;
+      aspect-ratio: auto;
+      margin: 0 auto;
+    }
+
+    .card-contenus {
+      display: grid;
+      flex: none;
+      height: auto;
+      gap: 1rem;
+    }
+
+    .card-haut {
+      position: static;
+      min-height: 324px;
+      opacity: 1;
+      animation: none;
+    }
+
+    .footer-logo {
+      animation: none;
+    }
+  }
 }
