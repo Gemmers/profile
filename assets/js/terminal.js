@@ -108,6 +108,21 @@ function terminerSortie(texteAnnonce = "") {
   ajouterRappelMenu();
 }
 
+function revelerCaractereActif(node, caractere) {
+  const range = document.createRange();
+  const fin = node.textContent.length;
+  range.setStart(node, fin - caractere.length);
+  range.setEnd(node, fin);
+
+  const basCaractere = range.getBoundingClientRect().bottom;
+  const boundsEcran = ecran.getBoundingClientRect();
+  const basVisible = boundsEcran.top + ecran.clientTop + ecran.clientHeight;
+
+  if (basCaractere > basVisible) {
+    ecran.scrollTop += basCaractere - basVisible;
+  }
+}
+
 function preparerSortie(source) {
   const clone = source.cloneNode(true);
   clone.removeAttribute("hidden");
@@ -229,9 +244,10 @@ function ecrireSortie(source) {
     }
 
     const actuel = nodesATaper[nodeIndex];
-    actuel.node.textContent += actuel.caracteres[characterIndex];
+    const caractere = actuel.caracteres[characterIndex];
+    actuel.node.textContent += caractere;
     characterIndex += 1;
-    ecran.scrollTop = ecran.scrollHeight;
+    revelerCaractereActif(actuel.node, caractere);
 
     if (characterIndex >= actuel.caracteres.length) {
       nodeIndex += 1;

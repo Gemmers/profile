@@ -4,7 +4,7 @@
 @use '../abstracts/mixins' as *;
 
 @include max-tablette {
-  .card {
+  .card-contenus {
     padding: 20px;
   }
 
@@ -16,10 +16,6 @@
     flex-basis: 84px;
   }
 
-  .footer-logo {
-    width: 44px;
-    height: 44px;
-  }
 }
 
 @include max-mobile {
@@ -27,7 +23,7 @@
     padding: 12px;
   }
 
-  .card {
+  .card-contenus {
     padding: 16px;
   }
 
@@ -46,7 +42,7 @@
 }
 
 @include max-smartwatch {
-  .card {
+  .card-contenus {
     padding: 8px;
   }
 
@@ -57,16 +53,5 @@
 
   .box-footer {
     gap: 6px;
-    margin-top: 6px;
-    padding-top: 6px;
-  }
-
-  .footer-logo {
-    width: 32px;
-    height: 32px;
-  }
-
-  .footer-texte {
-    font-size: 10px;
   }
 }
