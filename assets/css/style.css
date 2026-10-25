@@ -265,6 +265,7 @@ body.font-accessible {
 }
 
 .terminal-sortie .qrcode-image {
+  width: min(112px, 50%);
   image-rendering: pixelated;
 }
 
