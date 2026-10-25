@@ -1,277 +1,72 @@
 // ============================================
-// RESPONSIVE — espacements adaptatifs
+// RESPONSIVE — terminal et carte
 // ============================================
-@use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// --- Tablette (768–1050px) ---
-@include max-petit {
-  .contenu-principal h1 { font-size: 24px; }
-}
-
-// --- Grande mobile (480–768px) ---
 @include max-tablette {
-  .stage {
-    grid-template-columns: 1fr;
-    padding: 1rem 16px 0;
-  }
-
   .card {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    max-width: 100%;
-    aspect-ratio: auto;
+    padding: 20px;
   }
 
   .card-haut {
-    flex-direction: column;
     gap: 16px;
   }
 
-  .card-contenus {
-    flex: none;
-    height: 350px;
-  }
-
-  .contenu-principal,
   .box-vignette {
-    flex: 0 0 auto;
+    flex-basis: 84px;
+  }
+
+  .footer-logo {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@include max-mobile {
+  .stage {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-haut {
+    gap: 0;
   }
 
   .box-vignette {
-    align-items: center;
-    justify-content: center;
+    display: none;
   }
 
-  .box-vignette .visuel-image {
-    min-width: 0;
+  .terminal {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+}
+
+@include max-smartwatch {
+  .card {
+    padding: 8px;
+  }
+
+  .terminal {
+    padding: 8px;
+    font-size: 10px;
   }
 
   .box-footer {
-    flex-basis: 54px;
-    gap: 8px;
-    margin-top: 8px;
+    gap: 6px;
+    margin-top: 6px;
     padding-top: 6px;
   }
 
   .footer-logo {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 
-  .box-vignette {
-    flex-direction: row;
-    gap: 8px;
-    min-height: 0;
-  }
-
-  .contenu-principal h1 { font-size: 22px; }
-  .contenu-principal p  { font-size: 13px; }
-}
-
-// --- Mobile (< 480px) ---
-@include max-mobile {
-  .stage {
-    padding: 0 10px;
-  }
-
-  .card {
-    max-width: 100%;
-    padding: 20px 18px;
-  }
-
-  .box-vignette {
-    flex-direction: row;
-    gap: 8px;
-    min-height: 0;
-  }
-
-  .contenu-principal h1 { font-size: 18px; }
-  .contenu-principal p  { font-size: 12px; }
-}
-
-// --- mini Mobile (< 360px) --- (parfait jusqu'à 197px, en dessous ça commence à overlapper)
-@include max-mini-mobile {
-
-  .card {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    max-width: 100%;
-    aspect-ratio: auto;
-    padding: 20px 18px;
-  }
-
-  .contenu-principal h1 { font-size: 18px; }
-  .contenu-principal p  { font-size: 12px; }
-}
-
-// --- Smartwatch (< 240px) ---
-@include max-smartwatch {
-
-  // 1. On casse tous les layouts (grid, flex, position)
-  .stage,
-  .card,
-  .card-visite,
-  .card-narration {
-    display: block;
-    position: static;
-    width: auto;
-    height: auto;
-    min-height: 0;
-    max-width: none;
-    margin: 0 0 0.5rem 0;
-    padding: 0;
-    grid-template-columns: none;
-    aspect-ratio: auto;
-    transform: none;
-  }
-
-  .stage {
-    min-height: 0;
-    padding: 0;
-  }
-
-  .card {
-    position: static;
-  }
-
-  .card-contenus {
-    display: grid;
-    height: auto;
-    gap: 1rem;
-  }
-
-  .card-haut {
-    position: static;
-    opacity: 1;
-    animation: none;
-  }
-
-  // 2. On supprime tout le décor
-  .led {
-    background: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  // 3. On masque tout ce qui n'est pas du texte utile
-  .corner,
-  .miniatures,
-  .indicateur,
-  .etiquette,
-  .fleche-avant-apres,
-  body::before,
-  body::after {
-    display: none;
-  }
-
-  // 4. Typographie adaptée à un écran minuscule
-  body {
-    font-family: $font-mono;
+  .footer-texte {
     font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: 0;
-    background: #fff;
-    color: #000;
-    overflow-y: auto;   // on réautorise le scroll vertical
-    overflow-x: hidden;
-  }
-
-  h1, h2 {
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0 0 0.3rem 0;
-    letter-spacing: 0;
-  }
-
-  p {
-    font-size: 12px;
-    margin: 0 0 0.5rem 0;
-    opacity: 1;
-  }
-
-  // 5. On neutralise le focus coloré (inutile sur montre, ou on le garde en gras)
-  .focus-mot {
-    color: inherit;
-    text-shadow: none;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .displaynone-max-smartwatch {
-    display: none;
-  }
-
-  .box-vignette .visuel-image .displaynone-max-smartwatch {
-    display: none;
-  }
-
-}
-
-@media (min-width: 241px) {
-  @supports not (animation-timeline: scroll()) {
-    .stage {
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    .card {
-      position: relative;
-      top: auto;
-      height: auto;
-      aspect-ratio: auto;
-      margin: 0 auto;
-    }
-
-    .card-contenus {
-      display: grid;
-      flex: none;
-      height: auto;
-      gap: 1rem;
-    }
-
-    .card-haut {
-      position: static;
-      min-height: 324px;
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .stage {
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    .card {
-      position: relative;
-      top: auto;
-      height: auto;
-      aspect-ratio: auto;
-      margin: 0 auto;
-    }
-
-    .card-contenus {
-      display: grid;
-      flex: none;
-      height: auto;
-      gap: 1rem;
-    }
-
-    .card-haut {
-      position: static;
-      min-height: 324px;
-      opacity: 1;
-      animation: none;
-    }
-
-    .footer-logo {
-      animation: none;
-    }
   }
 }

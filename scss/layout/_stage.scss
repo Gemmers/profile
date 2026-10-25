@@ -6,30 +6,17 @@
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 400vh;
-  padding: max(1rem, calc(50vh - 210px)) 2rem 0;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .card {
-  aspect-ratio: 3 / 2;
-  width: 520px;
-  min-height: 420px;
-  margin: 0 auto;
-}
-
-.scroll-anchor {
-  position: absolute;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.scroll-anchor--restauration {
-  top: 100vh;
-}
-
-.scroll-anchor--whoami {
-  top: 200vh;
+  width: min(520px, 100%);
+  height: min(420px, calc(100vh - 2rem));
+  height: min(420px, calc(100svh - 2rem));
+  min-height: 0;
 }

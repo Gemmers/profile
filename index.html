@@ -11,6 +11,9 @@
 <meta name="apple-mobile-web-app-title" content="SylvainBohrer" />
 <link rel="manifest" href="/site.webmanifest?v=20261012" />
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <title>Sylvain Bohrer Portfolio</title>
 </head>
@@ -19,54 +22,71 @@
 <main class="stage">
 
   <article class="card" aria-label="Carte de visite">
+
     <div class="card-contenus">
-      <div class="card-haut card-haut--photographie">
-        <section class="contenu-principal">
-          <div class="etiquette">01 — Photographie</div>
-          <h1 class="displaynone-max-smartwatch">Capturer l'<span class="focus-mot">instant</span>, tel qu'il est.</h1>
-          <p>
-            Photographe passionné, je saisis les émotions spontanées de vos enfants, de votre famille et de vos amis, ainsi que les moments précieux de votre mariage.
-          </p>
+      <div class="card-haut">
+        <section class="contenu-principal" aria-label="Contenu interactif">
+          <div class="terminal" role="region" aria-label="Terminal interactif">
+            <div class="terminal-ecran" id="terminal-ecran" role="log" aria-live="off" aria-busy="false"></div>
+            <div class="terminal-ligne-saisie">
+              <span class="terminal-prompt" aria-hidden="true">❯</span>
+              <span class="terminal-tape" id="terminal-tape" aria-hidden="true"></span>
+              <span class="terminal-curseur" aria-hidden="true">▍</span>
+              <label for="terminal-input" class="sr-only">Saisir un mot-clé</label>
+              <input id="terminal-input" class="terminal-input-vrai" type="text" autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+          <div class="sr-only" id="terminal-annonce" aria-live="polite" aria-atomic="true"></div>
         </section>
 
-        <aside class="box-vignette displaynone-max-smartwatch">
-          <img src="assets/images/p1.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
-          <img src="assets/images/p2.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
-          <img src="assets/images/p3.svg" alt="Portrait d'enfant" class="visuel-image displaynone-max-smartwatch">
-        </aside>
-      </div>
-
-      <div class="card-haut card-haut--restauration">
-        <section class="contenu-principal">
-          <div class="etiquette">02 — Restauration de photos anciennes</div>
-          <h1 class="displaynone-max-smartwatch">Redonner vie à vos <span class="focus-mot">souvenirs</span>.</h1>
-          <p>
-            Je restaure vos photographies anciennes en atténuant les traces du temps, pour préserver et transmettre vos souvenirs de famille.
-          </p>
-        </section>
-
-        <aside class="box-vignette displaynone-max-smartwatch">
-          <img src="assets/images/restore2.svg" alt="Portrait avant restauration" class="visuel-image displaynone-max-smartwatch">
-          <img src="assets/images/restore1.svg" alt="Portrait après restauration" class="visuel-image displaynone-max-smartwatch">
-        </aside>
-      </div>
-
-      <div class="card-haut card-haut--whoami">
-        <section class="contenu-principal">
-          <div class="etiquette">03 — À propos</div>
-          <h1 class="displaynone-max-smartwatch">Photographe passionné</h1>
-          <p>
-            Je capture vos moments précieux et restaure vos photos anciennes pour raconter votre histoire.
-          </p>
-          <img src="assets/images/qrcode_sms.svg" alt="QR Code pour m'envoyer un sms" class="qrcode-image displaynone-max-smartwatch">
-        </section>
-
-        <aside class="box-vignette displaynone-max-smartwatch">
-          <img src="assets/images/portrait_sylvain.svg" alt="Portrait guilloché de Sylvain Bohrer" class="visuel-image displaynone-max-smartwatch">
+        <aside class="box-vignette" aria-label="Exemples de restauration">
+          <img src="assets/images/restore2.svg" alt="Portrait avant restauration" title="Portrait avant restauration" class="visuel-image">
+          <img src="assets/images/restore1.svg" alt="Portrait après restauration" title="Portrait après restauration" class="visuel-image">
         </aside>
       </div>
     </div>
 
+    <section class="terminal-sources" aria-label="Rubriques du terminal" hidden>
+      <details class="bloc-depliant" data-key="restauration">
+        <summary>Service Retouche &amp; Restauration de photos anciennes</summary>
+        <h1>Redonnez vie à vos souvenirs.</h1>
+        <p>Je numérise vos anciens négatifs et diapositives, puis je les restaure véritablement : rééquilibrage des couleurs et de l'exposition, correction des défauts, nettoyage numérique et restauration assistée par IA lorsque cela est utile. Chaque image est traitée comme un cas particulier, avec une IA raisonnée et toujours sous contrôle humain, pour obtenir un résultat propre, naturel et fidèle. Parce qu'un simple scan ne suffit pas pour préserver et transmettre vos souvenirs de famille.</p>
+      </details>
+
+      <details class="bloc-depliant" data-key="conditions">
+        <summary>Conditions</summary>
+        <ul>
+          <li><strong>Volume volontairement limité.</strong> Je n'accepte que quelques négatifs et diapositives par demande. Chaque image demande un travail de retouche long et minutieux : il ne s'agit pas d'un simple scan automatique.</li>
+          <li><strong>Manipulation délicate.</strong> Je numérise vos supports avec un Epson Perfection V800 Photo, en les manipulant avec précaution. Je ne réalise pas de nettoyage physique des supports au-delà d'un coup de soufflette. Je ne fais ni développement chimique, ni traitement par voie humide, ni mouillage des négatifs.</li>
+          <li><strong>Pellicules non développées : non.</strong> Je ne traite pas les rouleaux de pellicule exposés non développés, c'est-à-dire la pellicule restant dans l'appareil photo. Ils doivent être confiés à un laboratoire photo, ne jamais être exposés à la lumière et rester enroulés dans leur support.</li>
+          <li><strong>Toutes les demandes et tous les formats ne sont pas acceptés.</strong> Je vous confirme au préalable si votre support entre dans le cadre de ce que je peux traiter. Certains formats ou états de support peuvent être refusés.</li>
+          <li><strong>Contenus refusés.</strong> Je n'accepte pas les photos illégales ou choquantes. Un repère simple : si l'image peut être montrée à un enfant de 5 à 15 ans, elle a de bonnes chances d'être acceptée ; en cas de doute, je me réserve le droit de refuser.</li>
+          <li><strong>Choix techniques à ma discrétion.</strong> Le dosage de l'IA, la colorisation ou décolorisation, ainsi que tous les choix de numérisation, retouche et restauration relèvent de mon appréciation professionnelle. Je n'accepte pas de demandes particulières sur ces points.</li>
+          <li><strong>Ce cadre</strong> me permet de consacrer le temps nécessaire à chaque image et de garantir un résultat propre, naturel et fidèle.</li>
+          <li><strong>Ne découpez en aucun cas</strong> vos négatifs ou diapositives.</li>
+        </ul>
+      </details>
+
+      <details class="bloc-depliant" data-key="tarifs">
+        <summary>Tarifs</summary>
+        <table>
+          <caption>Tarifs indicatifs par image</caption>
+          <thead>
+            <tr><th scope="col">Prestation</th><th scope="col">Tarif indicatif</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Numérisation + Retouches &amp; Restaurations</td><td>à partir de 70 € / image</td></tr>
+            <tr><td>Retouches &amp; Restaurations (fichier fourni)</td><td>à partir de 50 € / image</td></tr>
+          </tbody>
+        </table>
+      </details>
+
+      <details class="bloc-depliant" data-key="contact">
+        <summary>Formulaire de contact</summary>
+        <p>Scannez ce QR code pour me contacter par SMS.</p>
+        <img src="assets/images/qrcode_sms.svg" alt="QR Code : me contacter par SMS" title="QR Code : me contacter par SMS" class="qrcode-image">
+      </details>
+    </section>
     <!-- footer -->
     <footer class="box-footer">
         <img src="assets/images/logo.svg"
@@ -78,10 +98,8 @@
 
   </article>
 
-  <span id="restauration" class="scroll-anchor scroll-anchor--restauration" aria-hidden="true"></span>
-  <span id="whoami" class="scroll-anchor scroll-anchor--whoami" aria-hidden="true"></span>
-
 </main>
 
+<script src="assets/js/terminal.js" defer></script>
 </body>
 </html>

@@ -18,24 +18,6 @@
     inset 0 0 40px rgba($rose, 0.15);
 }
 
-// --- Coins LED (les 4 points lumineux) ---
-@mixin coins-led {
-  .corner {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: $ardoise;
-    border-radius: 50%;
-    opacity: 0.55;
-    box-shadow: 0 0 6px rgba($ardoise, 0.7);
-
-    &.tl { top: 12px; left: 12px; }
-    &.tr { top: 12px; right: 12px; }
-    &.bl { bottom: 12px; left: 12px; }
-    &.br { bottom: 12px; right: 12px; }
-  }
-}
-
 // --- Accessibilité : réduire les animations ---
 @mixin reduced-motion {
   @media (prefers-reduced-motion: reduce) {
