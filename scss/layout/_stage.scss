@@ -7,16 +7,20 @@
   position: relative;
   z-index: 1;
   display: flex;
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 }
 
 .card {
-  width: min(520px, 100%);
-  height: min(420px, calc(100vh - 2rem));
-  height: min(420px, calc(100svh - 2rem));
+  width: min(850px, 100%);
+  max-width: 850px;
+  height: min(600px, calc(100vh - 2rem));
+  height: min(600px, calc(100dvh - 2rem));
+  max-height: 600px;
   min-height: 0;
 }
